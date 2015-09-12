@@ -6,23 +6,17 @@ class Memrise
 
   LOGIN_URL = 'https://www.memrise.com/login/'
 
-  def initialize agent
+  public
+  def initialize agent, args = {}
+    raise 'Username not provided.' unless args[:username]
+    raise 'Password not provided.' unless args[:password]
+
     @agent = agent
-  end
 
-  def login username, password
-    raise 'Username not provided.' if username.to_s.empty?
-    raise 'Password not provided.' if password.to_s.empty?
+    @username = args[:username]
+    @password = args[:password]
 
-    login_page = @agent.get LOGIN_URL
-    login_form = login_page.forms.first
-
-    login_form.username = username
-    login_form.password = password
-
-    dashboard = @agent.submit login_form
-    raise 'Login failed.' if dashboard.search('body.dashboard').empty?
-    @dashboard = dashboard
+    login
   end
 
   def points
@@ -30,6 +24,19 @@ class Memrise
     @dashboard
         .search('.content-stats .right .number').first.content
         .gsub(',', '').to_i
+  end
+
+  private
+  def login
+    login_page = @agent.get LOGIN_URL
+    login_form = login_page.forms.first
+
+    login_form.username = @username
+    login_form.password = @password
+
+    dashboard = @agent.submit login_form
+    raise 'Login failed.' if dashboard.search('body.dashboard').empty?
+    @dashboard = dashboard
   end
 
 end
