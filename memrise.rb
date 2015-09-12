@@ -40,7 +40,3 @@ class Memrise
   end
 
 end
-
-memrise = Memrise.new Mechanize.new
-memrise.login ENV['MEMRISE_USERNAME'], ENV['MEMRISE_PASSWORD']
-puts memrise.points
