@@ -2,7 +2,7 @@
 
 ## Introduction ##
 
-Since [Beeminder](http://www.memrise.com/) does not integrate with [Memrise](http://www.memrise.com/), this simple script aims to provide a way of automatically minding your cumulative score. This script can be called by _cron_ or manually every time after doing some learning. It is designed to work with the _odometer_ (or “biker”) goal types, where the datapoints are cummulative, that means the total points scored from the very beginning until now.
+Since [Beeminder](http://www.beeminder.com/) does not integrate with [Memrise](http://www.memrise.com/), this simple script aims to provide a way of automatically minding your cumulative score. This script can be called by _cron_ or manually every time after doing some learning. It is designed to work with the _odometer_ (or “biker”) goal types, where the datapoints are cummulative, that means the total points scored from the very beginning until now.
 
 ## Requirements ##
 
