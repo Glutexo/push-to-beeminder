@@ -7,11 +7,11 @@ class Memrise
   LOGIN_URL = 'https://www.memrise.com/login/'
 
   public
-  def initialize agent, args = {}
+  def initialize args = {}
     raise 'Username not provided.' unless args[:username]
     raise 'Password not provided.' unless args[:password]
 
-    @agent = agent
+    @agent = args[:agent] || Mechanize.new
 
     @username = args[:username]
     @password = args[:password]
