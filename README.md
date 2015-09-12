@@ -1,4 +1,4 @@
-# Memrise minder for Beeminder #
+# Mind your Memrise total points to Beeminder! #
 
 ## Introduction ##
 
