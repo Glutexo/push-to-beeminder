@@ -7,7 +7,7 @@ Since [Beeminder](http://www.beeminder.com/) does not integrate with [Memrise](h
 ## Requirements ##
 
 * Ruby, Bunder.
-* [Beeminder](http://www.beeminder.com/) account.
+* [Beeminder](http://www.beeminder.com/) account.
 * [Memrise](http://www.memrise.com/) account.
   
 ## Usage ##
