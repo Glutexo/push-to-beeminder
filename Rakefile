@@ -1,7 +1,7 @@
 require './beeminder'
-beeminder = Beeminder.new(username: ENV['BEEMINDER_USERNAME'],
+beeminder = Beeminder.new username:   ENV['BEEMINDER_USERNAME'],
                           auth_token: ENV['BEEMINDER_AUTH_TOKEN'],
-                          goal: ENV['BEEMINDER_MEMRISE_GOAL'])
+                          goal:       ENV['BEEMINDER_MEMRISE_GOAL']
 
 task :memrise do
   require './memrise'
