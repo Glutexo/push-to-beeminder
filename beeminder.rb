@@ -22,7 +22,18 @@ class Beeminder
   end
 
   def create_datapoint value
-    Net::HTTP::post_form URI(datapoint_url), value: value
+    if datapoint_changed value
+      Net::HTTP::post_form URI(datapoint_url), value: value
+    end
+  end
+
+  def datapoint_changed value
+    begin
+      last_datapoint = JSON.parse(Net::HTTP::get URI(datapoint_url))[0]['value']
+      last_datapoint.to_i != value
+    rescue Exception => boom
+      raise "Datapoint check failed with: #{boom}"
+    end
   end
 
 end
