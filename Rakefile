@@ -9,7 +9,7 @@ task :memrise do
   beeminder.create_datapoint Memrise.new(username: ENV['MEMRISE_USERNAME'],
                                          password: ENV['MEMRISE_PASSWORD'])
                                     .points
-  end
+end
 
 task :duolingo do
   require './duolingo'
